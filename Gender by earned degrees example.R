@@ -1,8 +1,9 @@
-library(gorica)
+
 
 #Use set.seed(111) as the random number generator to duplicate the results
 #in Table 9 (in the main text)
 
+library(gorica)
 set.seed(111)
 
 #Displaying the data on R console
