@@ -1,7 +1,9 @@
 library(gorica)
 
+#Eye-tracking example, scenario 'Person 1 influences Person 2'.
 #Use set.seed(111) as the random number generator to duplicate the results
-#in Table 13 (in the main text)
+#in Tables 11 and 12 (in the main text); the data are those in Table 10.
+#The defined parameters a, b, ..., l correspond to eta1, eta2, ..., eta12 in the paper.
 
 set.seed(111)
 
@@ -54,8 +56,9 @@ a > b & c > d & g > h & i > j;
 a = b & c = d & e = f & k = l;
 a = b & c = d & g = h & i = j")
 
-#Displaying the estimates of marginal cell probabilities and
-#their covariance matrix
+#Displaying the estimates of marginal cell probabilities (column eta-hat in Table 11) and
+#their UNADJUSTED covariance matrix (the zero variances of c and d are replaced below;
+#Table 11 reports the adjusted matrix, which is displayed after the replacement)
 
 res$estimates
 
@@ -71,8 +74,13 @@ covmtrx <- res$Sigma
 diag(covmtrx[c(which(diag(covmtrx == 0))), c(which(diag(covmtrx == 0)))]) =
   min(diag(covmtrx)[diag(covmtrx) > 0])
 
+#Displaying the adjusted covariance matrix: this is the matrix reported in
+#Table 11 (incl. the replaced variances of eta3 (c) and eta4 (d))
 
-#The values of the likelihood and penalty parts, GORICA values and GORICA weights
+covmtrx
+
+
+#The values of the likelihood and penalty parts, GORICA values and GORICA weights (Table 12)
 
 res2 <- gorica(est, Sigma = covmtrx, hypothesis = "a > b & c > d & e > f & k > l;
 a > b & c > d & g > h & i > j;
@@ -80,6 +88,11 @@ a = b & c = d & e = f & k = l;
 a = b & c = d & g = h & i = j")
 
 res2
+
+
+#Software environment used
+
+sessionInfo()
 
 
 

@@ -1,5 +1,9 @@
 library(gorica)
 
+#Structural zeros examples (Online Supplementary material).
+#Two of the calls below are meant to stop with an error message; they are wrapped in try()
+#so that the whole script runs from top to bottom (e.g., with source()).
+
 #Use set.seed(111) as the random number generator
 
 set.seed(111)
@@ -51,16 +55,14 @@ mydata
 
 #Since pi22 is estimated as zero, eta2 is estimated as one, which has no variation. Therefore, the program
 #stops and gives the error message: "Some of the defined parameters are invalid due to empty cell(s) in the
-#table. Please write the hypotheses."
+#table. Please rewrite the hypotheses."
 
 #The values of the likelihood and penalty parts, GORICA values
 #and GORICA weights
 
-res <- gorica(mydata, hypothesis = "a:=x[1,1]/(x[1,1]+x[2,1]);
+res <- try(gorica(mydata, hypothesis = "a:=x[1,1]/(x[1,1]+x[2,1]);
 b:=x[1,2]/(x[1,2]+x[2,2]);
-a > b")
-
-res
+a > b"))
 
 
 #Therefore, hypothesis Hm: eta1 > eta2 has to be rewritten as Hm: eta1 > 1. The values of log likelihood
@@ -100,10 +102,8 @@ mydata
 
 #The values of the likelihood and penalty parts, GORICA values and GORICA weights
 
-res <- gorica(mydata, hypothesis = "a:=(x[1,1]*x[2,2])/(x[1,1]*x[2,1]);
-a > 1")
-
-res
+res <- try(gorica(mydata, hypothesis = "a:=(x[1,1]*x[2,2])/(x[1,2]*x[2,1]);
+a > 1"))
 
 
 #After rewriting hypothesis as Hm: pi11*pi22-pi12*pi21 > 0, the values of log likelihood and penalty parts,
@@ -123,16 +123,6 @@ a > 0")
 res
 
 
+#Software environment used
 
-
-
-
-
-
-
-
-
-
-
-
-
+sessionInfo()

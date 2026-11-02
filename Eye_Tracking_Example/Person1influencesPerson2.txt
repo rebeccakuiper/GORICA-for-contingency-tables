@@ -1,5 +1,5 @@
 #Use set.seed(111) as the random number generator to duplicate the results
-#in Table 12 (in the main text)
+#in Tables 11 and 12 (in the main text); the data are those in Table 10
 
 library(gorica)
 set.seed(111)
@@ -58,6 +58,10 @@ est <- res$estimates
 covmtrx <- res$Sigma
 diag(covmtrx[c(which(diag(covmtrx == 0))), c(which(diag(covmtrx == 0)))]) =
 min(diag(covmtrx)[diag(covmtrx) > 0])
+
+#Displaying the estimates and the adjusted covariance matrix
+est
+covmtrx
 
 
 #The values of the likelihood and penalty parts, GORICA values and GORICA weights

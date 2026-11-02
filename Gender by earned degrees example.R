@@ -1,7 +1,8 @@
 
 
 #Use set.seed(111) as the random number generator to duplicate the results
-#in Table 9 (in the main text)
+#in Tables 8 and 9 (in the main text); the data are those in Table 1.
+#The defined parameters a, b, c, d correspond to eta1, eta2, eta3, eta4 in the paper.
 
 library(gorica)
 set.seed(111)
@@ -15,7 +16,7 @@ mydata
 
 
 #The values of the likelihood and penalty parts, GORICA values and
-#GORICA weights for the gender by earned degrees example
+#GORICA weights for the gender by earned degrees example (Table 9)
 
 res <- gorica(mydata, hypothesis = "a:=x[2,1]/(x[1,1]+x[2,1]);
 b:=x[2,2]/(x[1,2]+x[2,2]); c:=x[2,3]/(x[1,3]+x[2,3]);
@@ -28,7 +29,7 @@ res
 res$relative_weights
 
 
-#Displaying the estimates of conditional cell probabilities and their covariance matrix
+#Displaying the estimates of conditional cell probabilities and their covariance matrix (Table 8)
 
 res$estimates
 
@@ -38,5 +39,10 @@ res$Sigma
 #Displaying the order-restricted MLEs for conditional cell probabilities
 
 res$restricted_estimates
+
+
+#Software environment used
+
+sessionInfo()
 
 

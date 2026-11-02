@@ -1,5 +1,6 @@
 #Use set.seed(111) as the random number generator to duplicate the results
-#in Table 12 (in the main text)
+#in Table 9 (in the main text); see 'Gender by earned degrees example.R' for Table 8 as well
+library(gorica)
 set.seed(111)
 #Displaying the data on R console
 mydata <- as.table(matrix(c(933, 402, 51, 26, 661, 260, 44, 26),
