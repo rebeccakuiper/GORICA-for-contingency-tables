@@ -46,7 +46,7 @@ Each `.R` script ends with `sessionInfo()`. The results in Tables 8, 9, 11 and 1
 
 ## Acknowledgement and change log
 
-We thank the editorial team of the Journal of Reproducible Statistics (FAIR Press Journals) for independently rerunning the gender by earned degrees and eye-tracking examples (November 2026). All values they compared agreed with the paper.
+We thank the editorial team of the [Journal of Reproducible Statistics](https://jrepstat.fairpressjournals.com/) (FAIR Press Journals) for independently rerunning the gender by earned degrees and eye-tracking examples (November 2026). All values they compared agreed with the paper.
 
 Changes made in response to their report:
 
